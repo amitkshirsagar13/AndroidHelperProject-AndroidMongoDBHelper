@@ -45,16 +45,16 @@ public class AndroidDBConnectionTest {
 		AndroidApplicationMetadata androidApplicationMetadata = new AndroidApplicationMetadata();
 		androidApplicationMetadata.setApplicationName("ExchangeRate");
 		System.out.println(androidApplicationMetadata.getDBObject());
-		DBObject updateMe = queryUpdate.getRecordForUpdate("androidVersions", androidApplicationMetadata.getDBObject());
+		DBObject updateMe = queryUpdate.getRecordForUpdate("androidVersions", androidApplicationMetadata);
 
 		System.out.println(updateMe);
 
 		androidApplicationMetadata = AndroidApplicationMetadata.getInstance(updateMe, AndroidApplicationMetadata.class);
 
-		androidApplicationMetadata.getMetadata().setBuildDate("06-01-2015");
+		androidApplicationMetadata.getMetadata().setBuildDate("05-31-2015");
 
 		ObjectMapper mapper = new ObjectMapper();
-		queryUpdate.setUpdateMe(androidApplicationMetadata.getDBObject());
+		queryUpdate.setUpdateMe(androidApplicationMetadata);
 		WriteResult writeResult = queryUpdate.saveRecord();
 		System.out.println(writeResult.getN());
 	}

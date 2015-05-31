@@ -1,5 +1,8 @@
 package org.shinigami.db;
 
+import org.shinigami.dto.ShinigamiBaseEntity;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
@@ -119,6 +122,15 @@ public class ShinigamiDBInstance {
 			this.updateMe = updateMe;
 		}
 
+		/**
+		 * @param updateMe
+		 *            the updateMe to set
+		 * @throws JsonProcessingException
+		 */
+		public void setUpdateMe(ShinigamiBaseEntity updateMe) throws JsonProcessingException {
+			this.updateMe = updateMe.getDBObject();
+		}
+
 		public DBObject getRecordForUpdate(String dbCollection, DBObject query) {
 			this.dbCollection = dbCollection;
 			setQuery(query);
@@ -128,6 +140,26 @@ public class ShinigamiDBInstance {
 				break;
 			}
 			return updateMe;
+		}
+
+		public DBObject getRecordForUpdate(String dbCollection, ShinigamiBaseEntity query)
+				throws JsonProcessingException {
+			this.dbCollection = dbCollection;
+			setQuery(query.getDBObject());
+			DBCursor cursor = getDbCollection(null, this.dbCollection).find(getQuery());
+			while (cursor.hasNext()) {
+				updateMe = cursor.next();
+				break;
+			}
+			return updateMe;
+		}
+
+		public WriteResult insertRecord(String dbCollection, DBObject saveMe) {
+			return getDbCollection(null, this.dbCollection).insert(saveMe);
+		}
+
+		public WriteResult insertRecord(String dbCollection, ShinigamiBaseEntity saveMe) throws JsonProcessingException {
+			return getDbCollection(null, this.dbCollection).insert(saveMe.getDBObject());
 		}
 
 		public WriteResult saveRecord() {
