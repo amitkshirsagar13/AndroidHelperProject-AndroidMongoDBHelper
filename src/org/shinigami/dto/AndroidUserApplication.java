@@ -1,0 +1,89 @@
+package org.shinigami.dto;
+
+import java.util.List;
+
+/**
+ * <p>
+ * <b>Overview:</b>
+ * <p>
+ * 
+ * 
+ * <pre>
+ * @projectName AndroidMongoDBHelper
+ * Creation date: May 31, 2015
+ * @author Amit Kshirsagar
+ * @version 1.0
+ * @since
+ * 
+ * <p><b>Modification History:</b><p>
+ * 
+ * 
+ * </pre>
+ */
+
+public class AndroidUserApplication extends ShinigamiBaseEntity {
+	private String applicationName;
+	private String crtDate;
+	private int usedCount;
+	private List<String> comments;
+
+	/**
+	 * @return the applicationName
+	 */
+	public String getApplicationName() {
+		return applicationName;
+	}
+
+	/**
+	 * @param applicationName
+	 *            the applicationName to set
+	 */
+	public void setApplicationName(String applicationName) {
+		this.applicationName = applicationName;
+	}
+
+	/**
+	 * @return the crtDate
+	 */
+	public String getCrtDate() {
+		return crtDate;
+	}
+
+	/**
+	 * @param crtDate
+	 *            the crtDate to set
+	 */
+	public void setCrtDate(String crtDate) {
+		this.crtDate = crtDate;
+	}
+
+	/**
+	 * @return the usedCount
+	 */
+	public int getUsedCount() {
+		return usedCount;
+	}
+
+	/**
+	 * @param usedCount
+	 *            the usedCount to set
+	 */
+	public void setUsedCount(int usedCount) {
+		this.usedCount = usedCount;
+	}
+
+	/**
+	 * @return the comments
+	 */
+	public List<String> getComments() {
+		return comments;
+	}
+
+	/**
+	 * @param comments
+	 *            the comments to set
+	 */
+	public void setComments(List<String> comments) {
+		this.comments = comments;
+	}
+}
