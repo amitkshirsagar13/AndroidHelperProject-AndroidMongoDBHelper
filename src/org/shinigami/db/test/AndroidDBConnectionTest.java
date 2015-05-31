@@ -6,10 +6,8 @@ import org.shinigami.db.ShinigamiDBInstance;
 import org.shinigami.dto.AndroidApplicationMetadata;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.WriteResult;
-import com.mongodb.util.JSON;
 
 /**
  * <p>
@@ -44,16 +42,19 @@ public class AndroidDBConnectionTest {
 
 		ShinigamiDBInstance.QueryUpdate queryUpdate = dbInstance.new QueryUpdate();
 
-		DBObject query = new BasicDBObject("applicationName", "ExchangeRate");
-		DBObject updateMe = queryUpdate.getRecordForUpdate("androidVersions", query);
+		AndroidApplicationMetadata androidApplicationMetadata = new AndroidApplicationMetadata();
+		androidApplicationMetadata.setApplicationName("ExchangeRate");
+		System.out.println(androidApplicationMetadata.getDBObject());
+		DBObject updateMe = queryUpdate.getRecordForUpdate("androidVersions", androidApplicationMetadata.getDBObject());
 
-		AndroidApplicationMetadata androidApplicationMetadata = AndroidApplicationMetadata.getInstance(updateMe,
-				AndroidApplicationMetadata.class);
+		System.out.println(updateMe);
+
+		androidApplicationMetadata = AndroidApplicationMetadata.getInstance(updateMe, AndroidApplicationMetadata.class);
 
 		androidApplicationMetadata.getMetadata().setBuildDate("06-01-2015");
 
 		ObjectMapper mapper = new ObjectMapper();
-		queryUpdate.setUpdateMe((DBObject) JSON.parse(mapper.writeValueAsString(androidApplicationMetadata)));
+		queryUpdate.setUpdateMe(androidApplicationMetadata.getDBObject());
 		WriteResult writeResult = queryUpdate.saveRecord();
 		System.out.println(writeResult.getN());
 	}

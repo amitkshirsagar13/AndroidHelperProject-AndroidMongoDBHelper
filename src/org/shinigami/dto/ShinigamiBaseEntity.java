@@ -2,8 +2,11 @@ package org.shinigami.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 
 /**
  * <p>
@@ -24,6 +27,7 @@ import com.mongodb.DBObject;
  * </pre>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(Include.NON_NULL)
 public class ShinigamiBaseEntity implements ShinigamiDBHelper {
 	/**
 	 * @return
@@ -34,7 +38,12 @@ public class ShinigamiBaseEntity implements ShinigamiDBHelper {
 	}
 
 	@JsonIgnore
-	public String getDBObject() throws JsonProcessingException {
+	public String getJsonString() throws JsonProcessingException {
 		return MAPPER.writeValueAsString(this);
+	}
+
+	@JsonIgnore
+	public DBObject getDBObject() throws JsonProcessingException {
+		return (DBObject) JSON.parse(getJsonString());
 	}
 }
