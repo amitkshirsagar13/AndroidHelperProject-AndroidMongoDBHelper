@@ -1,3 +1,3 @@
-mongo ds043082.mongolab.com:43082/shinigami -u androiduser -p androiduser
+mongo ds043082.mongolab.com:43082/shinigami -u androiduser -p userpassword123
 
-mongodb://androiduser:androiduser@ds043082.mongolab.com:43082/shinigami
+mongodb://androiduser:userpassword123@ds043082.mongolab.com:43082/shinigami
