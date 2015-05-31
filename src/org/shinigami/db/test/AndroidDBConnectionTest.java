@@ -32,13 +32,13 @@ public class AndroidDBConnectionTest {
 
 	public static void main(String[] args) throws IOException {
 		// MongoClient mongoClient = new MongoClient(new MongoClientURI(
-		// "mongodb://androiduser:androiduser@ds043082.mongolab.com:43082/shinigami"));
+		// "mongodb://androiduser:userpassword123@ds043082.mongolab.com:43082/shinigami"));
 		// DB shinigami = mongoClient.getDB("shinigami");
 		// DBCollection androidVersions =
 		// shinigami.getCollection("androidVersions");
 
 		ShinigamiDBInstance dbInstance = ShinigamiDBInstance.getInstance(
-				"mongodb://androiduser:androiduser@ds043082.mongolab.com:43082/shinigami", "shinigami");
+				"mongodb://androiduser:userpassword123@ds043082.mongolab.com:43082/shinigami", "shinigami");
 
 		ShinigamiDBInstance.QueryUpdate queryUpdate = dbInstance.new QueryUpdate();
 
