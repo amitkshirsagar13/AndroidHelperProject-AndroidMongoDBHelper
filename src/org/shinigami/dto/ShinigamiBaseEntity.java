@@ -28,7 +28,7 @@ import com.mongodb.util.JSON;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_NULL)
-public class ShinigamiBaseEntity implements ShinigamiDBHelper {
+public class ShinigamiBaseEntity implements ShinigamiJsonDBHelper {
 	/**
 	 * @return
 	 * 

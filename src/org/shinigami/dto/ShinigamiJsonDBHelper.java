@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * </pre>
  */
 
-public interface ShinigamiDBHelper {
+public interface ShinigamiJsonDBHelper {
 	public static ObjectMapper MAPPER = new ObjectMapper();
 
 }

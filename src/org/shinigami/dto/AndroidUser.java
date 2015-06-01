@@ -26,7 +26,7 @@ public class AndroidUser extends ShinigamiBaseEntity {
 	private String email;
 	private String phone;
 	private List<AndroidUserApplication> applicationNames;
-	private String lastUpdted;
+	private String lastUpdated;
 	private boolean isUpdated;
 
 	/**
@@ -78,18 +78,18 @@ public class AndroidUser extends ShinigamiBaseEntity {
 	}
 
 	/**
-	 * @return the lastUpdted
+	 * @return the lastUpdated
 	 */
-	public String getLastUpdted() {
-		return lastUpdted;
+	public String getLastUpdated() {
+		return lastUpdated;
 	}
 
 	/**
-	 * @param lastUpdted
-	 *            the lastUpdted to set
+	 * @param lastUpdated
+	 *            the lastUpdated to set
 	 */
-	public void setLastUpdted(String lastUpdted) {
-		this.lastUpdted = lastUpdted;
+	public void setLastUpdated(String lastUpdated) {
+		this.lastUpdated = lastUpdated;
 	}
 
 	/**
