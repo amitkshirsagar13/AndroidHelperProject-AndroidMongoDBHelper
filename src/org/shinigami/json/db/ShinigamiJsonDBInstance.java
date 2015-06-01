@@ -30,7 +30,7 @@ import com.mongodb.WriteResult;
  * </pre>
  */
 
-public class ShinigamiJsonDBInstance {
+public class ShinigamiJsonDBInstance implements ShinigamiJsonDBInterface {
 	private static ShinigamiJsonDBInstance shinigamiDBInstance;
 
 	private MongoClient mongoClient;
