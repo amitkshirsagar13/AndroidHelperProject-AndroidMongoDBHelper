@@ -165,5 +165,13 @@ public class ShinigamiJsonDBInstance implements ShinigamiJsonDBInterface {
 		public WriteResult saveRecord() {
 			return getDbCollection(null, this.dbCollection).update(query, updateMe, true, true);
 		}
+
+		public WriteResult saveRecord(DBObject saveMe) {
+			return getDbCollection(null, this.dbCollection).update(query, saveMe, true, true);
+		}
+
+		public WriteResult saveRecord(ShinigamiBaseEntity saveMe) throws JsonProcessingException {
+			return getDbCollection(null, this.dbCollection).update(query, saveMe.getDBObject(), true, true);
+		}
 	}
 }
