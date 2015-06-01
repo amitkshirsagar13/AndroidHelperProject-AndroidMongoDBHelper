@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 public class AndroidUserApplication extends ShinigamiBaseEntity {
-	private String email;
+
 	private String applicationName;
 	private String crtDate;
 	private int usedCount;
@@ -92,21 +92,6 @@ public class AndroidUserApplication extends ShinigamiBaseEntity {
 	 */
 	public void setComments(List<String> comments) {
 		this.comments = comments;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email
-	 *            the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	/**
