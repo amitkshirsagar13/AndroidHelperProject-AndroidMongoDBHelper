@@ -1,4 +1,4 @@
-package org.shinigami.dto;
+package org.shinigami.json.dto;
 
 import java.util.ArrayList;
 import java.util.List;

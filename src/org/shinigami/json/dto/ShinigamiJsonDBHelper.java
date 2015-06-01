@@ -1,4 +1,4 @@
-package org.shinigami.dto;
+package org.shinigami.json.dto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

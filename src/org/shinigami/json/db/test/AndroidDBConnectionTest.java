@@ -1,9 +1,9 @@
-package org.shinigami.db.test;
+package org.shinigami.json.db.test;
 
 import java.io.IOException;
 
-import org.shinigami.db.ShinigamiDBInstance;
-import org.shinigami.dto.AndroidApplicationMetadata;
+import org.shinigami.json.db.ShinigamiJsonDBInstance;
+import org.shinigami.json.dto.AndroidApplicationMetadata;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.DBObject;
@@ -37,10 +37,10 @@ public class AndroidDBConnectionTest {
 		// DBCollection androidVersions =
 		// shinigami.getCollection("androidVersions");
 
-		ShinigamiDBInstance dbInstance = ShinigamiDBInstance.getInstance(
+		ShinigamiJsonDBInstance dbInstance = ShinigamiJsonDBInstance.getInstance(
 				"mongodb://androiduser:userpassword123@ds043082.mongolab.com:43082/shinigami", "shinigami");
 
-		ShinigamiDBInstance.QueryUpdate queryUpdate = dbInstance.new QueryUpdate();
+		ShinigamiJsonDBInstance.QueryUpdate queryUpdate = dbInstance.new QueryUpdate();
 
 		AndroidApplicationMetadata androidApplicationMetadata = new AndroidApplicationMetadata();
 		androidApplicationMetadata.setApplicationName("ExchangeRate");

@@ -1,6 +1,6 @@
-package org.shinigami.db;
+package org.shinigami.json.db;
 
-import org.shinigami.dto.ShinigamiBaseEntity;
+import org.shinigami.json.dto.ShinigamiBaseEntity;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.DB;
@@ -30,20 +30,20 @@ import com.mongodb.WriteResult;
  * </pre>
  */
 
-public class ShinigamiDBInstance {
-	private static ShinigamiDBInstance shinigamiDBInstance;
+public class ShinigamiJsonDBInstance {
+	private static ShinigamiJsonDBInstance shinigamiDBInstance;
 
 	private MongoClient mongoClient;
 	private DB shinigami;
 
-	private ShinigamiDBInstance(String mongoDBUri, String dbName) {
+	private ShinigamiJsonDBInstance(String mongoDBUri, String dbName) {
 		setMongoClient(new MongoClient(new MongoClientURI(mongoDBUri)));
 		setShinigami(dbName);
 	}
 
-	public static ShinigamiDBInstance getInstance(String mongoDBUri, String dbName) {
+	public static ShinigamiJsonDBInstance getInstance(String mongoDBUri, String dbName) {
 		if (shinigamiDBInstance == null) {
-			shinigamiDBInstance = new ShinigamiDBInstance(mongoDBUri, dbName);
+			shinigamiDBInstance = new ShinigamiJsonDBInstance(mongoDBUri, dbName);
 		}
 
 		return shinigamiDBInstance;
