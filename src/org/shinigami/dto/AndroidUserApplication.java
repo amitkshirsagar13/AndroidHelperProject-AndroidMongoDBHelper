@@ -1,5 +1,6 @@
 package org.shinigami.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,9 +23,12 @@ import java.util.List;
  */
 
 public class AndroidUserApplication extends ShinigamiBaseEntity {
+	private String email;
 	private String applicationName;
 	private String crtDate;
 	private int usedCount;
+	private boolean isUpdated;
+	private String lastUpdated;
 	private List<String> comments;
 
 	/**
@@ -76,6 +80,9 @@ public class AndroidUserApplication extends ShinigamiBaseEntity {
 	 * @return the comments
 	 */
 	public List<String> getComments() {
+		if (comments == null) {
+			comments = new ArrayList<String>();
+		}
 		return comments;
 	}
 
@@ -85,5 +92,50 @@ public class AndroidUserApplication extends ShinigamiBaseEntity {
 	 */
 	public void setComments(List<String> comments) {
 		this.comments = comments;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return the isUpdated
+	 */
+	public boolean isUpdated() {
+		return isUpdated;
+	}
+
+	/**
+	 * @param isUpdated
+	 *            the isUpdated to set
+	 */
+	public void setUpdated(boolean isUpdated) {
+		this.isUpdated = isUpdated;
+	}
+
+	/**
+	 * @return the lastUpdated
+	 */
+	public String getLastUpdated() {
+		return lastUpdated;
+	}
+
+	/**
+	 * @param lastUpdated
+	 *            the lastUpdated to set
+	 */
+	public void setLastUpdated(String lastUpdated) {
+		this.lastUpdated = lastUpdated;
 	}
 }

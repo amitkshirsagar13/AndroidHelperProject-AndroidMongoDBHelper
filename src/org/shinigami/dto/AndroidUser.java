@@ -1,5 +1,6 @@
 package org.shinigami.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,10 @@ import java.util.List;
 
 public class AndroidUser extends ShinigamiBaseEntity {
 	private String email;
+	private String phone;
 	private List<AndroidUserApplication> applicationNames;
+	private String lastUpdted;
+	private boolean isUpdated;
 
 	/**
 	 * @return the email
@@ -41,9 +45,27 @@ public class AndroidUser extends ShinigamiBaseEntity {
 	}
 
 	/**
+	 * @return the phone
+	 */
+	public String getPhone() {
+		return phone;
+	}
+
+	/**
+	 * @param phone
+	 *            the phone to set
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	/**
 	 * @return the applicationNames
 	 */
 	public List<AndroidUserApplication> getApplicationNames() {
+		if (applicationNames == null) {
+			applicationNames = new ArrayList<AndroidUserApplication>();
+		}
 		return applicationNames;
 	}
 
@@ -53,6 +75,36 @@ public class AndroidUser extends ShinigamiBaseEntity {
 	 */
 	public void setApplicationNames(List<AndroidUserApplication> applicationNames) {
 		this.applicationNames = applicationNames;
+	}
+
+	/**
+	 * @return the lastUpdted
+	 */
+	public String getLastUpdted() {
+		return lastUpdted;
+	}
+
+	/**
+	 * @param lastUpdted
+	 *            the lastUpdted to set
+	 */
+	public void setLastUpdted(String lastUpdted) {
+		this.lastUpdted = lastUpdted;
+	}
+
+	/**
+	 * @return the isUpdated
+	 */
+	public boolean isUpdated() {
+		return isUpdated;
+	}
+
+	/**
+	 * @param isUpdated
+	 *            the isUpdated to set
+	 */
+	public void setUpdated(boolean isUpdated) {
+		this.isUpdated = isUpdated;
 	}
 
 }
