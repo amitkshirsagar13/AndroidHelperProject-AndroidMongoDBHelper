@@ -3,6 +3,8 @@ package org.shinigami.json.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * <p>
  * <b>Overview:</b>
@@ -63,6 +65,14 @@ public class AndroidUser extends ShinigamiBaseEntity {
 	 * @return the applicationNames
 	 */
 	public List<AndroidUserApplication> getApplicationNames() {
+		return applicationNames;
+	}
+
+	/**
+	 * @return the applicationNames
+	 */
+	@JsonIgnore
+	public List<AndroidUserApplication> getApplicationNamesList() {
 		if (applicationNames == null) {
 			applicationNames = new ArrayList<AndroidUserApplication>();
 		}
